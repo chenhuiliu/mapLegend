@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <filterMenu :data="list" v-on:getSeletedData='getData'/>
+    <filterMenu :list="list" v-on:getSeletedData='getData'/>
   </div>
 </template>
 
@@ -18,27 +18,32 @@ export default {
         {
           name: "奥迪",
           url: "http://qa5vj5o3r.bkt.clouddn.com/%E5%A5%A5%E8%BF%AA%20%284%29.png",
-          isSelected: false
+          // isSelected: false
         },
         {
           name: "一汽大众",
           url: "http://qa5vj5o3r.bkt.clouddn.com/%E5%A4%A7%E4%BC%97.png",
-          isSelected: false
+          // isSelected: false
         },
         {
           name: "充电桩",
           url: "http://qa5vj5o3r.bkt.clouddn.com/%E5%A5%A5%E8%BF%AA%20%284%29.png",
-          isSelected: false
+          // isSelected: false
         },
         {
           name: "特斯拉",
           url: "http://qa5vj5o3r.bkt.clouddn.com/%E5%A5%A5%E8%BF%AA%20%284%29.png",
-          isSelected: false
+          // isSelected: false
         },
         {
           name: "奥迪2",
           url: "http://qa5vj5o3r.bkt.clouddn.com/%E5%A5%A5%E8%BF%AA%20%284%29.png",
-          isSelected: false
+          // isSelected: false
+        },
+        {
+          name: "奥迪3",
+          url: "http://qa5vj5o3r.bkt.clouddn.com/%E5%A5%A5%E8%BF%AA%20%284%29.png",
+          // isSelected: false
         }
       ]
     }

@@ -4,10 +4,10 @@
     <div class="lengend-box">
       <ul>
         <li
-          v-for="(item, index) in data"
+          v-for="(item, index) in list"
           :key="item.name"
           @click="selectHandler(index, item)"
-          :class="{'active': item.isSelected }"
+          :class="{'active': ids.includes(item.name) }"
         >
           <img :src="item.url" alt />
           <span>{{item.name}}</span>
@@ -21,15 +21,28 @@
 export default {
   name: "Lengend",
   props: {
-    data: Array
+    list: Array
   },
-  mounted: function() {
-    console.log(this.data, "====data====");
+  data: function() {
+    return {
+      ids:[]
+    };
+  },
+  computed: {
+  
   },
   methods: {
     selectHandler: function(index, item) {
-      item.isSelected = !item.isSelected;
-      this.$emit('getSeletedData', item);
+      if(this.ids.includes(item.name)) return;
+      this.ids.push(item.name);
+
+      let result=[];
+      this.list.forEach((listItem)=> {
+        if (this.ids.includes(listItem.name)) {
+          result.push(listItem);
+        }
+      })
+      this.$emit('getSeletedData',result);
     }
   }
 };
@@ -65,6 +78,7 @@ export default {
   background: #fff;
   color: #000;
   font-size: 14px;
+  border-radius: 2px;
 }
 
 li img {
@@ -76,6 +90,8 @@ li img {
 }
 
 .lengend-box .active {
+  margin-top: -5px;
   border-bottom: 3px solid red;
+  box-shadow: 2px 2px 5px #333333;
 }
 </style>
